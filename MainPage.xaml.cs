@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.Maui.Controls;
 using SimpleTodo.Models;
 
-namespace SimpleTodo.View
+namespace SimpleTodo
 {
     public partial class MainPage : ContentPage
     {
@@ -42,7 +42,13 @@ namespace SimpleTodo.View
                 BindingContext = new Models.TodoItem()
             });
         }
+        public async Task<List<TodoItem>> GetItems()
+        {
+            return await database.GetItemsAsync();
+        }
+        public void SetItems(List<TodoItem> items)
+        {
+            listView.ItemsSource = items;
+        }
     }
-
-
 }

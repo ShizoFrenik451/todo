@@ -56,9 +56,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="TodoCategoryPage.xaml.cs">
-	    <DependentUpon>TodoCategoryPage.xaml</DependentUpon>
-	  </Compile>
 	  <Compile Update="TodoItemPage.xaml.cs">
 	    <DependentUpon>TodoItemPage.xaml</DependentUpon>
 	  </Compile>
@@ -68,16 +65,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="TodoCategoryPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
 	  <MauiXaml Update="TodoItemPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="TodoListPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="CategoryPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
