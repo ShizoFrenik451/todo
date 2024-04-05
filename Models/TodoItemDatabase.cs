@@ -41,6 +41,9 @@ namespace SimpleTodo.Models
         public async Task<int> SaveItemAsync(TodoItem item)
         {
             await Init();
+
+            new DbHandler().AddToDb(item.Name, item.Notes);
+
             if (item.ID != 0)
                 return await Database.UpdateAsync(item);
             else
@@ -49,7 +52,10 @@ namespace SimpleTodo.Models
         public async Task<int> DeleteItemAsync(TodoItem item)
         {
             await Init();
-            return await Database.DeleteAsync(item);
+
+            new DbHandler().DeleteToDb(item.Name);
+
+            return await Database.DeleteAsync(item); //
         }
     }
 

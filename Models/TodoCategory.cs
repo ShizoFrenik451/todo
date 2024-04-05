@@ -19,8 +19,5 @@ namespace SimpleTodo.Models
         public ICollection<TodoItem> TodoItems { get; set; }
 
         public int Priority { get; set; }
-
-        
-        
     }
 }

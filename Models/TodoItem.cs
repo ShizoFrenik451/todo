@@ -25,6 +25,8 @@ namespace SimpleTodo.Models
                 {
                     name = value;
                     OnPropertyChanged(nameof(Name));
+
+
                 }
             }
         }
@@ -39,6 +41,8 @@ namespace SimpleTodo.Models
                 {
                     notes = value;
                     OnPropertyChanged(nameof(Notes));
+
+
                 }
             }
         }
