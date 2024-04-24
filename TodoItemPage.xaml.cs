@@ -34,6 +34,10 @@ public partial class TodoItemPage : ContentPage
     {
         await Shell.Current.GoToAsync("..");
     }
+    async void OnCameraClicked(object sender, EventArgs e)
+    {
+        
+    }
 
 
 }

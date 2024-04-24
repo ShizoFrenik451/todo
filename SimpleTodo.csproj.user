@@ -20,6 +20,9 @@
     <MauiXaml Update="MainPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="NewContent1.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="TodoItemPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>

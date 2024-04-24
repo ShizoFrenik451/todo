@@ -15,8 +15,10 @@ using FireSharp.Response;
 
 namespace SimpleTodo
 {
+    
     public partial class MainPage : ContentPage
     {
+        private bool isFlashlightOn = false;
         Models.TodoItemDatabase database;
         FirebaseClient firebaseClient = new FirebaseClient(baseUrl: "https://study-maui-default-rtdb.europe-west1.firebasedatabase.app/");
         public ObservableCollection<TodoItem> TodoItems { get; set; } = new ObservableCollection<TodoItem>();
@@ -59,6 +61,39 @@ namespace SimpleTodo
         public void SetItems(List<TodoItem> items) //
         {
             listView.ItemsSource = items;
+        }
+        
+        private async void ToggleFlashlight(object sender, EventArgs e)
+        {
+
+            try
+            {
+                if (isFlashlightOn)
+                {
+                    await Flashlight.TurnOffAsync();
+                    isFlashlightOn = !isFlashlightOn;
+                }
+                else
+                {
+                    await Flashlight.TurnOnAsync();
+                    isFlashlightOn = !isFlashlightOn;
+                }
+            }
+            catch (FeatureNotSupportedException)
+            {
+                // Функция не поддерживается на данном устройстве
+                await DisplayAlert("Ошибка", "Функция не поддерживается на вашем устройстве", "OK");
+            }
+            catch (PermissionException)
+            {
+                // Отсутствует разрешение на доступ к камере
+                await DisplayAlert("Ошибка", "Отсутствует разрешение на доступ к камере", "OK");
+            }
+            catch (Exception)
+            {
+                // Общая ошибка
+                await DisplayAlert("Ошибка", "Что-то пошло не так", "OK");
+            }
         }
     }
 }
