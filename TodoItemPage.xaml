@@ -10,12 +10,15 @@
         <Label Text="Notes" />
         <Entry Text="{Binding Notes}" />
 
+        <Label Text="Image" />
+        <Image x:Name="capturedImage" WidthRequest="200" HeightRequest="200" />
+
+
         <Label Text="Done" />
         <Switch IsToggled="{Binding Done}" />
 
         <Button Text="Save" Clicked="OnSaveClicked" />
         <Button Text="Delete" Clicked="OnDeleteClicked" />
-        <Button Text="Cancel" Clicked="OnCancelClicked" />
         <Button Text="Cancel" Clicked="OnCancelClicked" />
         <Button Text="Camera" Clicked="OnCameraClicked" />        
         

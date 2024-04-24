@@ -60,6 +60,7 @@ namespace SimpleTodo.Models
                 }
             }
         }
+        public byte[] ImageData { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
 

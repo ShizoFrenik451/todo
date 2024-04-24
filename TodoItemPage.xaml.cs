@@ -34,10 +34,29 @@ public partial class TodoItemPage : ContentPage
     {
         await Shell.Current.GoToAsync("..");
     }
+
     async void OnCameraClicked(object sender, EventArgs e)
     {
-        
+        if (MediaPicker.Default.IsCaptureSupported)
+        {
+            //TAKE PHOTO OR CAPTURE PHOTO
+            FileResult myPhoto = await MediaPicker.Default.CapturePhotoAsync();
+
+            //LOAD PHOTO
+            //FileResult myPhoto = await MediaPicker.Default.PickPhotoAsync();
+            if (myPhoto != null)
+            {
+                //save the image captured in the application.
+                string localFilePath = Path.Combine(FileSystem.CacheDirectory, myPhoto.FileName);
+                using Stream sourceStream = await myPhoto.OpenReadAsync();
+                using FileStream localFileStream = File.OpenWrite(localFilePath);
+                await sourceStream.CopyToAsync(localFileStream);
+                capturedImage.Source = ImageSource.FromFile(localFilePath); 
+                await Shell.Current.DisplayAlert("OOPS", localFileStream.Name, "Ok");
+            }
+
+
+        }
+
     }
-
-
 }
